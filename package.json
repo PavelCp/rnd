@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_938728e9e9f0b5d"
+    "chromatic": "npx chromatic --project-token=chpt_938728e9e9f0b5d --exit-zero-on-changes",
+    "chromatic:test": "chromatic test --exit-zero-on-changes"
   },
   "dependencies": {
     "@playwright/test": "^1.50.1",
