@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.only('Button component in Storybook', async ({ page }) => {
+test('Button component in Storybook', async ({ page }) => {
   await page.goto('http://localhost:6006/?path=/story/example-button--primary');
 
   //   await page.waitForLoadState('networkidle');
