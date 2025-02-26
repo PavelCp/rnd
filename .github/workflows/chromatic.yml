@@ -22,5 +22,13 @@ jobs:
         with:
           # ⚠️ Make sure to configure a `CHROMATIC_PROJECT_TOKEN` repository secret
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-      - name: Run Chromatic test
+      - name: Run Chromatic --exit-zero-on-changes=true
+        run: npx chromatic --project-token=chpt_938728e9e9f0b5d --exit-zero-on-changes=true
+      - name: Run Chromatic --exit-zero-on-changes=false
+        run: npx chromatic --project-token=chpt_938728e9e9f0b5d --exit-zero-on-changes=false
+      - name: Run Chromatic test --exit-zero-on-changes=false
+        run: npx chromatic test --project-token=chpt_938728e9e9f0b5d --exit-zero-on-changes=false
+      - name: Run Chromatic test --exit-zero-on-changes=true
+        run: chromatic test --project-token=chpt_938728e9e9f0b5d --exit-zero-on-changes=true
+      - name: Run Chromatic test --exit-zero-on-changes=true
         run: npm run chromatic:test
