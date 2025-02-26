@@ -9,9 +9,11 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_938728e9e9f0b5d"
   },
   "dependencies": {
+    "@playwright/test": "^1.50.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
