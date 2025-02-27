@@ -6,6 +6,8 @@ jobs:
   chromatic:
     name: Run Chromatic
     runs-on: ubuntu-latest
+    env:
+      projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,7 +21,8 @@ jobs:
         run: npm ci
       - name: Run Chromatic
         # uses: chromaui/action@latest
-        run: npm run chromatic
+
+        run: npm run chromatic --project-token=$projectToken
         # with:
         #   # ⚠️ Make sure to configure a `CHROMATIC_PROJECT_TOKEN` repository secret
         #   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
