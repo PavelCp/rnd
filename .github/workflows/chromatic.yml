@@ -22,7 +22,7 @@ jobs:
       - name: Run Chromatic
         # uses: chromaui/action@latest
 
-        run: npx chromatic --project-token=$$PROJECT_TOKEN --exit-zero-on-changes=false
+        run: npx chromatic --project-token=$PROJECT_TOKEN --exit-zero-on-changes=false
         # with:
         #   # ⚠️ Make sure to configure a `CHROMATIC_PROJECT_TOKEN` repository secret
         #   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
