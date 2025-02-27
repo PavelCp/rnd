@@ -19,8 +19,13 @@ jobs:
       - name: Install dependencies
         # ⚠️ See your package manager's documentation for the correct command to install dependencies in a CI environment.
         run: npm ci
-      - name: Checkproject token
-        run: echo $PROJECT_TOKEN ${PROJECT_TOKEN}
+      - name: Use secret as an environment variable
+        env:
+          MY_SECRET: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        run: |
+          echo "My Secret: $MY_SECRET"
+      - name: Check project token
+        run: echo "$PROJECT_TOKEN ${PROJECT_TOKEN}"
       - name: Run Chromatic
         # uses: chromaui/action@latest
 
