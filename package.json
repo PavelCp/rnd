@@ -10,7 +10,9 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --exit-zero-on-changes=false"
+    "chromatic": "npx chromatic --exit-zero-on-changes=false",
+    "deploy": "gh-pages -d storybook-static",
+    "predeploy": "npm run build"
   },
   "dependencies": {
     "@playwright/test": "^1.50.1",
@@ -37,6 +39,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "eslint-plugin-storybook": "^0.11.3",
+    "gh-pages": "^6.3.0",
     "globals": "^15.15.0",
     "playwright": "^1.50.1",
     "storybook": "^8.6.0",
