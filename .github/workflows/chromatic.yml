@@ -1,0 +1,40 @@
+name: 'Chromatic'
+
+on: push
+
+jobs:
+  chromatic:
+    name: Run Chromatic
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.12.0
+      - name: Install dependencies
+        # ⚠️ See your package manager's documentation for the correct command to install dependencies in a CI environment.
+        run: npm ci
+      - name: Run Chromatic
+        # uses: chromaui/action@latest
+
+        run: npx chromatic --project-token=$PROJECT_TOKEN --exit-zero-on-changes=false
+        # with:
+        #   # ⚠️ Make sure to configure a `CHROMATIC_PROJECT_TOKEN` repository secret
+        #   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      # - name: Run Chromatic --exit-zero-on-changes=true
+      #   run: npx chromatic --project-token=chpt_938728e9e9f0b5d --exit-zero-on-changes=true
+
+      # - name: Run Chromatic --exit-zero-on-changes=false
+      #   run: npx chromatic --project-token=chpt_938728e9e9f0b5d --exit-zero-on-changes=false
+
+      # - name: Run Chromatic test --exit-zero-on-changes=false
+      #   run: npx chromatic test --project-token=chpt_938728e9e9f0b5d --exit-zero-on-changes=false
+      # - name: Run Chromatic test --exit-zero-on-changes=true
+      #   run: chromatic test --project-token=chpt_938728e9e9f0b5d --exit-zero-on-changes=true
+      # - name: Run Chromatic test --exit-zero-on-changes=true
+      #   run: npm run chromatic:test
